@@ -290,3 +290,127 @@ border-collapse: separate;
  width: 150px;
     margin-left: 15px;
   }
+  .mar-lft-15
+  {
+     position:absolute;
+    transition: .5s ease;
+    top: 40%;
+    left: 50%;
+  }
+ .btn 
+ {
+  position:absolute;
+    transition: .5s ease;
+    top: 40%;
+    left: 50%;
+ }
+ #load_to
+  {
+     width: 170px;
+    height: 40px;
+  }
+  #load_from
+  {
+    width: 170px;
+    height: 40px;
+  }
+  #load_material
+  {
+    width: 170px;
+    height: 40px;
+  }
+  #load_truck_type
+  {
+    width: 170px;
+    height: 40px;
+  }
+  }
+ /*signup page*/
+
+  #user_address_state
+  {
+   width: 35%;
+   height: 10%;
+   }
+   #user_address_city
+   {
+     width: 36%;
+    height: 10%;
+   }
+   #user_role_id
+   {
+    width: 35%;
+     height: 10%;
+   }
+   #user_email
+   {
+     width: 45%;
+   }
+   #user_password
+   {
+     width: 45%;
+
+   }
+   #user_password_confirmation
+   {
+     width: 45%;
+
+   }
+   #user_first_name
+   {
+     width: 45%;
+
+   }
+   #user_last_name
+   {
+     width: 45%;
+
+   }
+   #user_mobile_number
+   {
+     width: 45%;
+
+   }
+   #user_address_line1
+   {
+     width: 45%;
+
+   }
+   #user_address_line2
+   {
+     width: 45%;
+
+   }
+   #user_address_pin_code
+   {
+     width: 45%;
+
+   }
+   #user_address_country
+   {
+     width: 45%;
+
+   }
+   #user_company_name
+   {
+    width: 45%;
+   }
+   #user_company_type
+   {
+     width: 45%;
+
+   }
+   #user_company_pan_no
+   {
+     width: 45%;
+
+   }
+   #user_company_gst_no
+   {
+     width: 45%; 
+
+   }
+   #role
+   {
+         padding-top: 30px;
+   }
