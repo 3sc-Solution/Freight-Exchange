@@ -90,7 +90,7 @@ class LoadsController < ApplicationController
 
   def load_user_profile
     user = User.find_by_id(params[:user_id])
-    @loads = user.loads if user.present?
+    @loads = user.loads.where(:booked => "request") if user.present?
   end
 
   def make_confirmation_load
