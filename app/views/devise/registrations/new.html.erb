@@ -22,7 +22,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", class: "input" , placeholder: "Password Confirmation" %> 
   </div>
   <h3>User Type</h3>
-    <div class="field user-form-width">
+    <div class="field user-form-width u-type-bottom">
       <%= f.label :User_Type %><span>*</span><br />
       <%= f.select "role_id", options_for_select(Role.where(:role_enabled=> true).collect{ |u| [u.name, u.id]}), :prompt=>"Select Role" %>
     </div>

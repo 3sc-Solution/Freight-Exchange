@@ -27,7 +27,6 @@ class LoadsController < ApplicationController
         @trucks = params[:load_schedule_date].present? ? current_user.trucks.where('schedule_date = ?',params[:load_schedule_date]) : current_user.trucks.find(:all, :conditions=>["truck_from LIKE ? AND truck_to LIKE ? AND truck_type LIKE ?", "%#{params[:load_from]}%","%#{params[:load_to]}%", "%#{params[:load_truck_type]}%"])
       else
         @loads = Load.where("load_from IN (?) AND load_to IN (?)",load_by_source,load_by_destination)
-# @loads = Load.where("load_from IN (?)",load_by_source)
         @trucks = params[:load_schedule_date].present? ? current_user.trucks.where('schedule_date = ?',params[:load_schedule_date]) : current_user.trucks.find(:all, :conditions=>["truck_from LIKE ? AND truck_to LIKE ? AND truck_type LIKE ?", "%#{params[:load_from]}%","%#{params[:load_to]}%", "%#{params[:load_truck_type]}%"])
       end
         @loads = @loads.paginate(page: params[:page], per_page: 10)
@@ -120,6 +119,6 @@ class LoadsController < ApplicationController
   end
    private
     def load_params
-      params.require(:load).permit(:load_from, :load_to, :load_material, :load_weight, :load_truck_type, :load_no_of_truck, :load_schedule_date, :load_type, :source_pin_code,:destination_pin_code, :load_enabled, :user_id, :booked, :sharing_load, :expected_price, :information, :load_body)
+      params.require(:load).permit(:load_from, :load_to, :load_material, :load_weight, :load_truck_type, :load_no_of_truck, :load_schedule_date, :source_pin_code,:destination_pin_code, :load_enabled, :user_id, :booked, :sharing_load, :expected_price, :information, :load_body)
     end
 end

@@ -46,7 +46,7 @@ LOAD_TRUCK_TYPE = ['canter jumbo',
   # validates :load_no_of_truck, :if => Proc.new{|f| f.load_type == "Full load" },   :presence => {:message => "can't be blank."}
   # validates :load_truck_type, :if => Proc.new{|f|  f.load_type == "Full load"},   :presence => {:message => "can't be blank."}
   validates :source_pin_code, :presence => true
-  validates :load_type, :presence => true
+  # validates :load_type, :presence => true
   validates :destination_pin_code, :presence => true
   # validates :source_pin_code, :destination_pin_code ,:presence => true,
                    # :numericality => true,
@@ -54,7 +54,7 @@ LOAD_TRUCK_TYPE = ['canter jumbo',
   validates :expected_price, :presence => true, 
     :format => { :with => /\A(\$)?(\d+)(\.|,)?\d{0,2}?\z/ }
   belongs_to :user
-  
+  scope :booked_status_request, -> { where(booked: 'request') }
   def self.update_booked_record
     loads = Load.where(:booked=> "requesting")
     loads.each do |load|

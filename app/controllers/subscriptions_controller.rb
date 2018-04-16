@@ -12,11 +12,13 @@ class SubscriptionsController < ApplicationController
 	    	plan_amount = plan.item["amount"]/100 if plan.present?
 	    	razor_subscription = Razorpay::Subscription.create plan_id: "plan_9vS9eTSf8lPqRn", customer_id: current_user.customer_id, start_at: (Time.now + (60 * 60 * 24)).to_i, total_count: 3
 				if plan.item["name"] == "Half yearly"
-					subscription = Subscription.create(:plan_id => params[:plan_id],:user_id => cust_id,:start_at => Time.now , :next_due_date=> Time.now + 90.days,:status=> "Created", :payment_id => params[:razorpay_payment_id])
+					subscription = Subscription.create(:plan_id => params[:plan_id],:user_id => cust_id,:start_at => Time.now , :next_due_date=> Time.now + 180.days,:status=> "Created", :payment_id => params[:razorpay_payment_id])
 				else
 					subscription = Subscription.create(:plan_id => params[:plan_id],:user_id => cust_id,:start_at => Time.now , :next_due_date=> Time.now + 30.days,:status=> "Created", :payment_id => params[:razorpay_payment_id])
 	    	end
 	    	current_user.update_attribute(:subscription_date, Time.now) if current_user.present?
+	    	flash[:alert] = "Successfully Subscription."
+	    	redirect_to root_path
 	    rescue Exception
 	    	flash[:alert] = "Unable to process payment."
 	  		redirect_to root_path
