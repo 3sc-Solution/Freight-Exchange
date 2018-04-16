@@ -2,21 +2,21 @@ class LoadsController < ApplicationController
   require 'will_paginate/array'
   respond_to :html, :json, :js
   before_filter :authenticate_user!
-  before_action :check_subscription
+  # before_action :check_subscription
 
-  def check_subscription
-    if current_user.present?
-      max_hours = 24 * 1
-      time = Time.now - current_user.subscription_date if current_user.subscription_date.present?
-      hours = (time / 1.hour).round
-      if hours > max_hours
-        # sign_out(current_user)
-        respond_to do |format|
-           format.html { redirect_to subscriptions_path, success: 'Please make subscription' }
-          end
-      end
-    end
-  end
+  # def check_subscription
+  #   if current_user.present?
+  #     max_hours = 24 * 1
+  #     time = Time.now - current_user.subscription_date if current_user.subscription_date.present?
+  #     hours = (time / 1.hour).round
+  #     if hours > max_hours
+  #       # sign_out(current_user)
+  #       respond_to do |format|
+  #          format.html { redirect_to subscriptions_path, success: 'Please make subscription' }
+  #         end
+  #     end
+  #   end
+  # end
 
   def index
     load_by_source = Truck.pluck(:truck_from).uniq
