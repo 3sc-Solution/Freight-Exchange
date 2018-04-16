@@ -17,7 +17,6 @@
   <th scope="col">Action</th>
   </tr>
   <%= hidden_field_tag "truck_id", @trucks.present? ? @trucks.map(&:id).uniq : "" %>
-  <% cache do %>
     <% loads.each do |load| %>
       <tr>
         <td>
@@ -82,7 +81,6 @@
             </td>
         </td>
     <% end %>
-  <% end %>
   <%= will_paginate loads  if loads.present? %>
 <% else %>
   <tr><h3 class='text-data'>No data found</h3></tr>
