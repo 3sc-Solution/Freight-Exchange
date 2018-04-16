@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta content=‘text/html; charset=UTF-8’ http–equiv=‘Content-Type’ />
+  </head>
+  <body>
+		<h1>Hi <%= @truck.user.full_name.present? ? @truck.user.full_name : @truck.user.email %></h1>
+		<h3>You have created truck</h3>
+<h1>With following details </h1>
+<table border="1">
+  <tr>
+    <th>Truck from</th>
+    <th>Truck to</th>
+    <th>Vehicle number</th>
+    <th>Truck Weight</th>
+    <th>Driver name</th>
+    <th>Driver mobile number</th>
+    <th>Documentation</th>
+    <th>Truck body</th>
+    <th>information</th>
+  </tr>
+    <tr>
+      <td><%= @truck.truck_from  if @truck.truck_from.present? %></td>
+      <td><%= @truck.truck_to if @truck.truck_to.present? %></td>
+      <td><%= @truck.vehicle_number  if @truck.vehicle_number.present? %></td>
+      <td><%= @truck.truck_weight if @truck.truck_weight.present? %></td>
+      <td><%= @truck.driver_name if @truck.driver_name.present? %></td>
+      <td><%= @truck.driver_mobile_no if @truck.driver_mobile_no.present? %></td>
+      <td><%= @truck.truck_type if @truck.truck_type.present? %></td>
+      <td><%= @truck.documentation if @truck.documentation.present? %></td>
+      <td><%= @truck.information if @truck.information.present? %></td>
+    </tr>
+  </table>
+  </body>
+</html>

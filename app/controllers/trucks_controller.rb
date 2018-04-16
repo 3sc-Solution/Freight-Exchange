@@ -48,9 +48,10 @@ class TrucksController < ApplicationController
     	 if @truck.save
         driver = @truck.drivers.build(:name=> params[:truck][:driver_name],:transporter_name => params[:truck][:current_transporter_name],:truck_id => @truck.id,:lic_number => params[:truck][:licence_number])
         driver.save if driver.present?
+        CreateTruck.truck_user(@truck).deliver
         ###  call deliver method for send email ###
         respond_to do |format|
-         format.html { redirect_to trucks_path, success: 'Truck was successfully created, please check mail..!' }
+         format.html { redirect_to trucks_path, success: 'Truck was successfully created.' }
         end
       else
         render "trucks/new"
@@ -67,7 +68,7 @@ class TrucksController < ApplicationController
      @truck.update_attributes(:truck_booked =>true) if @truck.present?
      TruckBook.truck_booking_email(@truck.user).deliver if @truck.user.present?
      respond_to do |format|
-       format.html { redirect_to :back, success: 'Truck successfully booked, please check mail..!' }
+       format.html { redirect_to :back, success: 'Truck successfully booked' }
      end
     end
   end
