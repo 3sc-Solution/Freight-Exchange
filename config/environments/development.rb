@@ -11,7 +11,7 @@ FreightExchange::Application.configure do
   # config.assets.digest = false
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
   # config.assets.quiet = true
