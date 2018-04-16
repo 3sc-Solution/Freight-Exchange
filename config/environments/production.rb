@@ -49,7 +49,7 @@ FreightExchange::Application.configure do
   config.log_level = :info
 # //SMPT setting email
 
-  config.action_mailer.default_url_options = { :host => 'https://freight-exchange.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'https://freight-3sc-app.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
     ActionMailer::Base.smtp_settings = {
